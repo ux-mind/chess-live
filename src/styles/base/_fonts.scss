@@ -3,9 +3,25 @@
 // -----------------------------------------------------------------------------
 
 @font-face {
-	font-family: 'Manrope';
-	src: font('Manrope-VariableFont_wght.woff2') format('woff2'), font('Manrope-VariableFont_wght.woff') format('woff');
+	font-family: 'FontAwesomeBrands';
+	src: font('fa-brands-400.woff2') format('woff2'), font('fa-brands-400.woff') format('woff');
 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'FontAwesome';
+	src: font('fa-regular-400.woff2') format('woff2'), font('fa-regular-400.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'FontAwesomeSolid';
+	src: font('fa-solid-900.woff2') format('woff2'), font('fa-solid-900.woff') format('woff');
+	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
 }

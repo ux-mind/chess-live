@@ -1,0 +1,9 @@
+.cage {
+	width: 292px;
+	height: 292px;
+	background: $white;
+	opacity: 0.19;
+	&_transparent {
+		background: transparent;
+	}
+}
