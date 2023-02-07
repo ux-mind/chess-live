@@ -1,12 +1,38 @@
 import React from 'react';
 import HomeBg from './HomeBg/HomeBg';
+import Title from '../../components/Title';
+import PrimaryBtn from '../../components/PrimaryBtn';
 
 const Home = () => {
 	return (
 		<main className="home">
 			<HomeBg />
-			<div className="content"></div>
-			<div className="home-bottom">made by - Musa BinThaily</div>
+			<div className="container">
+				<div className="home-content">
+					<div className="home-preview">
+						<div className="home-preview__title">
+							<Title size="l">CHESS LIVE TV</Title>
+						</div>
+						<div className="home-preview__subtitle">
+							<p>CHESS TOURNAMENTS, GAMES AND NEWS</p>
+						</div>
+						<div className="home-preview__btn">
+							<PrimaryBtn type="link" route="/">
+								WATCH IT NOW
+							</PrimaryBtn>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="home-bottom">
+				<div className="home-bottom__block">
+					<div className="home-bottom__block_shadow"></div>
+					<div className="home-bottom__main">
+						<span>made by - Musa BinThaily</span>
+					</div>
+					<div className="home-bottom__block_shadow"></div>
+				</div>
+			</div>
 		</main>
 	);
 };

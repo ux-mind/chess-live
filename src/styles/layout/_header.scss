@@ -18,3 +18,15 @@
 		}
 	}
 }
+
+@media screen and (max-width: 1300px) {
+	.header {
+		&-links {
+			padding: 0 36px;
+			&__item {
+				font-family: $font-brands;
+				letter-spacing: 0;
+			}
+		}
+	}
+}

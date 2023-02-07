@@ -1,2 +1,12 @@
-.button {
+.btn {
+	font-family: $font-solid;
+	display: inline-block;
+	font-weight: 900;
+	letter-spacing: 0.06em;
+	color: $white;
+	background: $red;
+	font-size: 2rem;
+	line-height: calc(23 / 20);
+	padding: 1.4em 3.1em;
+	border-radius: 10px;
 }

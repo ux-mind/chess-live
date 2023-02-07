@@ -1,2 +1,13 @@
 .title {
+	font-family: $font-solid;
+	font-weight: 900;
+	color: $white;
+	margin: 0;
+	&_size {
+		&-l {
+			font-size: 4.8rem;
+			line-height: calc(55.2 / 48);
+			letter-spacing: 0.06em;
+		}
+	}
 }

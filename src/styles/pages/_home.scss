@@ -3,6 +3,7 @@
 	min-height: 100vh;
 	position: relative;
 	overflow: hidden;
+	@include flex(column);
 	&-bg {
 		position: absolute;
 		top: 50%;
@@ -16,7 +17,67 @@
 		display: grid;
 		grid-template-columns: repeat(11, 1fr);
 		grid-gap: 0;
-		&__cages {
+	}
+	&-content {
+		height: 100vh;
+		padding: 200px 0;
+		@include flex(row, center, center);
+	}
+	&-preview {
+		// margin-top: 360px;
+		@include flex(column, center);
+		&__title {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		&__subtitle {
+			margin-bottom: 80px;
+			& p {
+				margin: 0;
+				color: rgba($white, 0.6);
+				font-size: 2rem;
+				line-height: calc(23 / 20);
+			}
+		}
+	}
+	&-bottom {
+		position: absolute;
+		z-index: 1;
+		height: 80px;
+		bottom: 0;
+		left: 0;
+		background: $red;
+		width: 100%;
+		&__block {
+			position: relative;
+			@include flex(row, flex-start, center);
+			height: 100%;
+			&_shadow:first-child {
+				width: 140px;
+				height: 100%;
+				background: linear-gradient(253.22deg, #000000 -9.11%, rgba(58, 21, 17, 0) 9.37%);
+				mix-blend-mode: hard-light;
+			}
+			&_shadow:last-child {
+				width: 140px;
+				height: 100%;
+				background: linear-gradient(253.22deg, #000000 -9.11%, rgba(58, 21, 17, 0) 9.37%);
+				mix-blend-mode: hard-light;
+				transform: matrix(-1, 0, 0, 1, 0, 0);
+			}
+		}
+		&__main {
+			min-width: 490px;
+			border-radius: 10px;
+			background: $red;
+			color: rgba($white, 0.4);
+			padding: 20px 40px 0;
+			font-size: 1.6rem;
+			line-height: calc(18.4 / 16);
+			text-align: center;
+			letter-spacing: 0.06em;
+			height: calc(100% + 45px);
+			transform: translateY(-45px);
 		}
 	}
 }
