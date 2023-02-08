@@ -7,3 +7,11 @@
 		background: transparent;
 	}
 }
+
+@media screen and (max-width: 991px) {
+	.cage {
+		width: 132px;
+		height: 132px;
+		opacity: 0.2;
+	}
+}

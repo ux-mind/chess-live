@@ -9,4 +9,16 @@
 	line-height: calc(23 / 20);
 	padding: 1.4em 3.1em;
 	border-radius: 10px;
+	&:hover {
+		opacity: 0.8;
+	}
+	&:active {
+		opacity: 0.6;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.btn {
+		padding: 1em 1.75em;
+	}
 }

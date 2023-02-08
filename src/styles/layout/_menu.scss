@@ -1,0 +1,101 @@
+.menu {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	background: rgba($dark-bg, 0.8);
+	backdrop-filter: blur(32px);
+	pointer-events: none;
+	transform: translateX(100%);
+	opacity: 0;
+	transition: opacity 0.3s ease-out, transform 0.3s linear;
+	&_opened {
+		pointer-events: auto;
+		opacity: 1;
+		transform: none;
+	}
+	&-btn {
+		display: none;
+		margin-left: auto;
+		width: 47px;
+		height: 31px;
+		position: relative;
+		border: 1px solid rgba($gray-400, 0.2);
+		border-radius: 15px 0;
+		&:hover {
+			opacity: 0.7;
+		}
+		& span {
+			width: 22px;
+			height: 1px;
+			background: $white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			&:first-child {
+				transform: translate(-50%, calc(-50% - 7px));
+			}
+			&:nth-child(2) {
+				width: 15px;
+				transform: translate(calc(-50% + 3.5px), -50%);
+			}
+			&:last-child {
+				transform: translate(-50%, calc(-50% + 7px));
+			}
+		}
+	}
+	&-wrapper {
+		padding-top: 30px;
+		@include flex(column);
+		& .close {
+			position: relative;
+			margin-left: auto;
+			width: 20px;
+			height: 20px;
+			& span {
+				position: absolute;
+				display: inline-block;
+				width: 28px;
+				height: 1px;
+				background: $white;
+				top: 50%;
+				left: 50%;
+				&:first-child {
+					transform: translate(-50%, -50%) rotate(-45deg);
+				}
+				&:last-child {
+					transform: translate(-50%, -50%) rotate(45deg);
+				}
+			}
+		}
+	}
+	&-list {
+		margin-top: 100px;
+		width: 100%;
+		&__item {
+			border-bottom: 1px solid rgba($gray-400, 0.2);
+			color: rgba($white, 0.6);
+			letter-spacing: 0.095em;
+			&:last-child {
+				border-bottom: none;
+			}
+			& a {
+				padding: 31px 0;
+				display: block;
+				&:hover {
+					color: $red;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1320px) {
+	.menu {
+		&-btn {
+			display: block;
+		}
+	}
+}

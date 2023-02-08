@@ -15,18 +15,18 @@
 		&__item {
 			font-family: $font-brands;
 			letter-spacing: 0.095em;
+			&:hover {
+				color: $red;
+			}
 		}
 	}
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1320px) {
 	.header {
+		margin-top: 25px;
 		&-links {
-			padding: 0 36px;
-			&__item {
-				font-family: $font-brands;
-				letter-spacing: 0;
-			}
+			display: none;
 		}
 	}
 }
