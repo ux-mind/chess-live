@@ -2,10 +2,11 @@ import React from 'react';
 import HomeBg from './HomeBg/HomeBg';
 import Title from '../../components/Title';
 import PrimaryBtn from '../../components/PrimaryBtn';
+import PUBLIC_ROUTES from '../../data/publicRoutes';
 
 const Home = () => {
 	return (
-		<main className="home">
+		<main className="main home">
 			<HomeBg />
 			<div className="container">
 				<div className="home-content">
@@ -17,7 +18,7 @@ const Home = () => {
 							<p>CHESS TOURNAMENTS, GAMES AND NEWS</p>
 						</div>
 						<div className="home-preview__btn">
-							<PrimaryBtn type="link" route="/">
+							<PrimaryBtn type="link" route={PUBLIC_ROUTES.tournaments}>
 								WATCH IT NOW
 							</PrimaryBtn>
 						</div>

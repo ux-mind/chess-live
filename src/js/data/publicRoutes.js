@@ -3,7 +3,8 @@ const PUBLIC_ROUTES = {
 	sites: '/related-sites',
 	channels: '/related-channels',
 	accounts: '/related-accounts',
-	stores: '/stores'
+	stores: '/stores',
+	tournaments: '/tournaments'
 };
 
 export default PUBLIC_ROUTES;

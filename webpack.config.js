@@ -123,18 +123,18 @@ module.exports = {
 		static: {
 			directory: path.join(__dirname, './')
 		},
-		// historyApiFallback: true,
-		historyApiFallback: {
-			index: '/dist/'
-		},
-		proxy: {
-			'/': {
-				bypass: function (req, res, proxyOptions) {
-					console.log('Skipping proxy for browser request.');
-					return `${PUBLICPATH}/index.html`;
-				}
-			}
-		},
+		historyApiFallback: true,
+		// historyApiFallback: {
+		// 	index: '/dist/'
+		// },
+		// proxy: {
+		// 	'/': {
+		// 		bypass: function (req, res, proxyOptions) {
+		// 			console.log('Skipping proxy for browser request.');
+		// 			return `${PUBLICPATH}/index.html`;
+		// 		}
+		// 	}
+		// },
 		open: true,
 		compress: true,
 		hot: true, //makes hmr available
