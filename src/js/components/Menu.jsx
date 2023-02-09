@@ -11,18 +11,26 @@ const links = [
 ];
 
 const Menu = ({ isOpened, setIsOpened }) => {
+	const menuClose = () => {
+		const html = document.documentElement;
+
+		html.classList.remove('.is-locked');
+
+		setIsOpened(false);
+	};
+
 	return (
 		<div className={isOpened ? `menu menu_opened` : `menu`}>
 			<div className="container">
 				<div className="menu-wrapper">
-					<button className="close" onClick={() => setIsOpened(false)}>
+					<button className="close" onClick={() => menuClose()}>
 						<span></span>
 						<span></span>
 					</button>
 					<ul className="menu-list">
 						{links.map(({ name, route }) => (
 							<li className="menu-list__item" key={name}>
-								<Link to={route} onClick={() => setIsOpened(false)}>
+								<Link to={route} onClick={() => menuClose()}>
 									{name}
 								</Link>
 							</li>

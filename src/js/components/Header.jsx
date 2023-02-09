@@ -14,6 +14,14 @@ const links = [
 const Header = () => {
 	const [menuOpened, setMenuOpened] = useState(false);
 
+	const menuOpen = () => {
+		const html = document.documentElement;
+
+		html.classList.add('.is-locked');
+
+		setMenuOpened(true);
+	};
+
 	return (
 		<>
 			<header className="header">
@@ -25,7 +33,7 @@ const Header = () => {
 							</li>
 						))}
 					</ul>
-					<button className="menu-btn" onClick={() => setMenuOpened(true)}>
+					<button className="menu-btn" onClick={() => menuOpen()}>
 						<span></span>
 						<span></span>
 						<span></span>

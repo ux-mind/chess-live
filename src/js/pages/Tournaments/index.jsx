@@ -12,8 +12,43 @@ const Tournaments = () => {
 		<main className="main tournaments">
 			<div className="container">
 				<div className="tournaments-wrapper">
-					<div className="tournaments-tabs"></div>
-					<div className="tournaments-block"></div>
+					<div className="tournaments-tabs">
+						<button className="tab">Tournaments</button>
+						{tabs
+							? tabs.map((tab, idx) => (
+									<button className="tab" key={idx}>
+										{tab.event}
+									</button>
+							  ))
+							: null}
+					</div>
+					<div className="tournaments-block">
+						{tournaments
+							? tournaments.map(({ status, events }) => {
+									return (
+										<div className="tournaments-status" key={status}>
+											<div className="tournaments-status__title">
+												{status}
+											</div>
+											<ul className="tournaments-list">
+												{events[0]
+													? events.map(({ event }) => (
+															<li
+																className="tournaments-list__item"
+																key={event}
+															>
+																<button className="tournaments-list__btn">
+																	{event}
+																</button>
+															</li>
+													  ))
+													: null}
+											</ul>
+										</div>
+									);
+							  })
+							: null}
+					</div>
 				</div>
 			</div>
 		</main>
