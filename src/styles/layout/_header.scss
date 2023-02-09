@@ -13,7 +13,7 @@
 		padding: 0 98px;
 		@include flex(row, center, space-between);
 		&__item {
-			font-family: $font-brands;
+			font-family: $font;
 			letter-spacing: 0.095em;
 			&:hover {
 				color: $red;
