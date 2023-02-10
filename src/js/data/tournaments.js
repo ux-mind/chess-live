@@ -2,7 +2,18 @@ const tournaments = [
 	{
 		status: 'current',
 		events: [
-			{ event: `Tata Steel Chess Masters 2023` },
+			{
+				event: `Tata Steel Chess Masters 2023`,
+				site: 'Almaty, Kazakhstan',
+				date: '????.??.??',
+				round: '13.1',
+				white: 'Saduakassova, Dinara',
+				black: 'Tan, Zhongyi',
+				result: '0-1',
+				timeControl: '15+10',
+				whiteElo: '2435',
+				blackElo: '2502'
+			},
 			{ event: `Tata Steel Chess Challengers 2023` },
 			{ event: `1000GM Schiller GM 2023` },
 			{ event: `1000GM Schiller IM 2023` },

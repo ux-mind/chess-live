@@ -2,10 +2,37 @@
 	@include font(2rem, calc(23 / 20));
 	font-weight: 700;
 	padding: 29px 34px 26px;
-	border: 1px solid rgba($gray-400, 0.2);
-	border-bottom: none;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	border: 1px solid transparent;
+	border-bottom: none;
+	position: relative;
+	& .close {
+		cursor: pointer;
+		display: none;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 50%;
+		right: 34px;
+		transform: translateY(-50%);
+	}
+	&_tournaments {
+		&.tab_active {
+			border-color: rgba($gray-400, 0.2);
+			border-bottom: none;
+			background: transparent;
+			padding: 29px 34px 26px;
+		}
+	}
+	&_active {
+		border-color: $red;
+		background: $red;
+		padding-right: 78px;
+		& .close {
+			display: inline-block;
+		}
+	}
 }
 
 @media screen and (max-width: 991px) {
