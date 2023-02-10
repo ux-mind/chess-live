@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import tournaments from '../../data/tournaments';
 
 const Tournaments = () => {
@@ -13,12 +14,16 @@ const Tournaments = () => {
 			<div className="container">
 				<div className="tournaments-wrapper">
 					<div className="tournaments-tabs">
-						<button className="tab">Tournaments</button>
+						<Swiper spaceBetween="auto" style={{ width: '100%' }}>
+							<SwiperSlide>
+								<button className="tab">Tournaments</button>
+							</SwiperSlide>
+						</Swiper>
 						{tabs
 							? tabs.map((tab, idx) => (
-									<button className="tab" key={idx}>
-										{tab.event}
-									</button>
+									<SwiperSlide key={tab.event}>
+										<button className="tab">{tab.event}</button>
+									</SwiperSlide>
 							  ))
 							: null}
 					</div>

@@ -48,3 +48,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 1320px) {
+	.tournaments {
+		&-wrapper {
+			padding: 205px 0 65px;
+		}
+	}
+}
