@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import tournaments from '../../data/tournaments';
 import { Navigation } from 'swiper';
+import TournamentsContent from './TournamentsContent/TournamentsContent';
 
 const Tournaments = () => {
 	// Tournament link does not refer to other route
@@ -14,12 +15,6 @@ const Tournaments = () => {
 	const [tabs, setTabs] = useState([]);
 
 	const [navigationEnabled, setNavigationEnabled] = useState(false);
-
-	const openEvent = (event) => {
-		if (!tabs.includes(event)) {
-			setTabs((tabs) => [...tabs, event]);
-		}
-	};
 
 	const closeEvent = (event) => {
 		if (tabs.includes(event)) {
@@ -134,34 +129,12 @@ const Tournaments = () => {
 							</div>
 						) : null}
 					</div>
-					<div className="tournaments-block">
-						{tournaments && activeTab === 'tournaments'
-							? tournaments.map(({ status, events }) => {
-									return (
-										<div className="tournaments-status" key={status}>
-											<div className="tournaments-status__title">
-												{status}
-											</div>
-											<ul className="tournaments-list">
-												{events[0]
-													? events.map((event) => (
-															<li
-																className="tournaments-list__item"
-																key={event.event}
-																onClick={() => openEvent(event)}
-															>
-																<button className="tournaments-list__btn">
-																	{event.event}
-																</button>
-															</li>
-													  ))
-													: null}
-											</ul>
-										</div>
-									);
-							  })
-							: null}
-					</div>
+					<TournamentsContent
+						tournaments={tournaments}
+						activeTab={activeTab}
+						setTabs={setTabs}
+						tabs={tabs}
+					/>
 				</div>
 			</div>
 		</main>

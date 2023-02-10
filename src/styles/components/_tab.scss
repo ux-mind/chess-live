@@ -4,8 +4,7 @@
 	padding: 29px 34px 26px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	border: 1px solid transparent;
-	border-bottom: none;
+
 	position: relative;
 	& .close {
 		cursor: pointer;
@@ -18,19 +17,39 @@
 		transform: translateY(-50%);
 	}
 	&_tournaments {
+		border: 1px solid transparent;
+		border-bottom: none;
 		&.tab_active {
 			border-color: rgba($gray-400, 0.2);
 			border-bottom: none;
 			background: transparent;
 			padding: 29px 34px 26px;
+			&::before {
+				content: none;
+			}
 		}
 	}
 	&_active {
 		border-color: $red;
 		background: $red;
 		padding-right: 78px;
+		position: relative;
+		border-bottom: 1px solid $red;
 		& .close {
 			display: inline-block;
+		}
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: calc(100% + 1px);
+			left: 0;
+			top: 0;
+			pointer-events: none;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border: 1px solid rgba($gray-400, 0.2);
+			border-bottom: none;
 		}
 	}
 }

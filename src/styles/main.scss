@@ -50,7 +50,7 @@ html {
 @import 'layout/header', 'layout/main', 'layout/footer', './layout/menu', './layout/container';
 
 // 6. Components
-@import 'components/app', './components/cage';
+@import 'components/app', './components/cage', './components/tournament-info';
 
 // 7. Page-specific styles
 @import 'pages/home', './pages/tournaments';
