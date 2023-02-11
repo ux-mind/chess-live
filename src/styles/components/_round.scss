@@ -8,6 +8,7 @@
 		background: $dark-600;
 	}
 	&-btn {
+		cursor: pointer;
 		@include font(2rem, calc(23 / 20));
 		padding: 27px 34px 27px 78px;
 		display: grid;
