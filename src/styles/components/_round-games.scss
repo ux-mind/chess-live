@@ -1,0 +1,13 @@
+.round-games {
+	&__game {
+		border-bottom: 1px solid rgba($gray-400, 0.2);
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+	&__link {
+		@include flex(row, center, space-between);
+		padding: 29px 34px;
+		@include font(1.8rem, calc(21 / 18));
+	}
+}

@@ -1,10 +1,17 @@
+.tabs-wrapper {
+	position: absolute;
+	@include font(row, stretch);
+	top: 0;
+	left: -1px;
+	transform: translateY(-100%);
+}
+
 .tab {
 	@include font(2rem, calc(23 / 20));
 	font-weight: 700;
 	padding: 29px 34px 26px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-
 	position: relative;
 	& .close {
 		cursor: pointer;
@@ -16,7 +23,7 @@
 		right: 34px;
 		transform: translateY(-50%);
 	}
-	&_tournaments {
+	&_primary {
 		border: 1px solid transparent;
 		border-bottom: none;
 		&.tab_active {

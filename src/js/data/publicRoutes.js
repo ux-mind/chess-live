@@ -4,7 +4,7 @@ const PUBLIC_ROUTES = {
 	channels: '/related-channels',
 	accounts: '/related-accounts',
 	stores: '/stores',
-	tournaments: '/tournaments'
+	tournaments: '/events'
 };
 
 export default PUBLIC_ROUTES;

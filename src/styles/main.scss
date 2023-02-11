@@ -50,7 +50,9 @@ html {
 @import 'layout/header', 'layout/main', 'layout/footer', './layout/menu', './layout/container';
 
 // 6. Components
-@import 'components/app', './components/cage', './components/tournament-info';
+@import 'components/app', './components/cage', './components/tournament-info', './components/tournament-games',
+	'./components/tournament-rounds', './components/tournament-standigs', './components/round',
+	'./components/round-games';
 
 // 7. Page-specific styles
 @import 'pages/home', './pages/tournaments';

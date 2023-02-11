@@ -1,0 +1,39 @@
+.tournament-standings {
+	order: 1;
+	&__content {
+		position: relative;
+	}
+	&__table {
+		border: 1px solid rgba($gray-400, 0.2);
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-spacing: 0;
+		& th:first-child {
+			border-top-left-radius: 9px;
+		}
+		& th:last-child {
+			border-top-right-radius: 9px;
+		}
+		& tr:last-child {
+			& td:first-child {
+				border-bottom-left-radius: 9px;
+			}
+			& td:last-child {
+				border-bottom-right-radius: 9px;
+			}
+		}
+		& th,
+		& td {
+			@include font(1.8rem, calc(21 / 18));
+			border: 1px solid rgba($gray-400, 0.2);
+			text-align: center;
+			padding: 19px 14px;
+			&:nth-child(2) {
+				text-align: left;
+				padding-left: 24px;
+				padding-right: 24px;
+			}
+		}
+	}
+}

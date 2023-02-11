@@ -1,0 +1,49 @@
+.round {
+	border-bottom: 1px solid rgba($gray-400, 0.2);
+	&:last-child {
+		border-bottom: none;
+		& .round-btn:not(.round-btn_opened) {
+			border-bottom: none;
+		}
+	}
+	&:nth-child(2n + 1) {
+		background: $dark-600;
+	}
+	&-btn {
+		@include font(2rem, calc(23 / 20));
+		padding: 27px 34px 27px 78px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-bottom: 1px solid rgba($gray-400, 0.2);
+		position: relative;
+		&_opened {
+			font-weight: 700;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 37px;
+			width: 24px;
+			height: 24px;
+			background: icon('arrow-down.svg') no-repeat 50% / cover;
+		}
+		&.round-btn_opened::before {
+			transform: translateY(-50%) rotate(90deg);
+		}
+		&__games-count {
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				width: 24px;
+				height: 24px;
+				top: 50%;
+				right: calc(100% + 15px);
+				transform: translateY(-50%);
+				background: icon('bxs_chess.svg') no-repeat 50% / cover;
+			}
+		}
+	}
+}
