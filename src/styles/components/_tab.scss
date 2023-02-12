@@ -6,6 +6,18 @@
 	transform: translateY(-100%);
 }
 
+.tabs-navigation {
+	display: none;
+	&-prev,
+	&-next {
+		&:disabled,
+		&[disabled] {
+			pointer-events: none;
+			opacity: 0.5;
+		}
+	}
+}
+
 .tab {
 	text-overflow: ellipsis;
 	line-clamp: 1;
@@ -73,7 +85,6 @@
 	.tab {
 		@include font(1.8rem, calc(21 / 18));
 		padding: 29px 15px 26px;
-		width: 100%;
 		&_active {
 			padding-right: 47px;
 			& .close {
@@ -85,6 +96,21 @@
 			&.tab_active {
 				padding: 29px 15px 26px;
 			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.tabs-navigation {
+		@include flex(row, center, center);
+		grid-gap: 15px;
+		margin-top: 35px;
+	}
+
+	.tab {
+		width: 100%;
+		&_primary {
+			width: auto;
 		}
 	}
 }

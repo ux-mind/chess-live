@@ -7,15 +7,6 @@
 		position: relative;
 		@include flex(row, stretch, flex-start, wrap);
 		border-bottom: 1px solid rgba($gray-400, 0.2);
-		& .swiper-navigation {
-			@include flex(row, center, center);
-			grid-gap: 15px;
-			position: absolute;
-			top: calc(100% + 35px);
-			left: 50%;
-			transform: tranlsateX(-50%);
-			display: none;
-		}
 		& .swiper {
 			display: flex;
 			border-bottom: 1px solid rgba($gray-400, 0.2);
@@ -92,6 +83,10 @@
 	.tournaments {
 		&-tabs {
 			flex-wrap: nowrap;
+			margin: 0;
+			&__wrapper {
+				margin-bottom: 80px;
+			}
 			& .tab {
 				display: none;
 				&_active {
