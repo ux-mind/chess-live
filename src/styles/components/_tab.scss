@@ -73,6 +73,7 @@
 	.tab {
 		@include font(1.8rem, calc(21 / 18));
 		padding: 29px 15px 26px;
+		width: 100%;
 		&_active {
 			padding-right: 47px;
 			& .close {
@@ -80,6 +81,7 @@
 			}
 		}
 		&_primary {
+			width: auto;
 			&.tab_active {
 				padding: 29px 15px 26px;
 			}

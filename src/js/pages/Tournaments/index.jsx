@@ -10,14 +10,20 @@ const Tournaments = () => {
 	const [activeTab, setActiveTab] = useState('tournaments');
 	const [tabs, setTabs] = useState([]);
 
-	const closeEvent = (event) => {
-		if (tabs.includes(event)) {
-			const filteredTabs = tabs.filter((tab) => tab.event !== event.event);
+	const closeEvent = (evt, tabEvent) => {
+		evt.stopPropagation();
+
+		if (tabs.includes(tabEvent)) {
+			const filteredTabs = tabs.filter((tab) => tab.event !== tabEvent.event);
 
 			setTabs(filteredTabs);
 			setActiveTab('tournaments');
 		}
 	};
+
+	useEffect(() => {
+		console.log(activeTab);
+	}, [activeTab]);
 
 	return (
 		<main className="main tournaments">
@@ -43,7 +49,10 @@ const Tournaments = () => {
 											key={tab.event}
 										>
 											{tab.event}
-											<div className="close" onClick={() => closeEvent(tab)}>
+											<div
+												className="close"
+												onClick={(evt) => closeEvent(evt, tab)}
+											>
 												<svg
 													width="24"
 													height="24"
