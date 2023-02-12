@@ -15,3 +15,14 @@
 		}
 	}
 }
+
+@media screen and (max-width: 767px) {
+	.tournament-games {
+		&__content {
+			padding: 26px 14px;
+			& p {
+				@include font(1.6rem, calc(18.4 / 16));
+			}
+		}
+	}
+}

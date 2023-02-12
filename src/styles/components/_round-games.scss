@@ -6,5 +6,23 @@
 		@include flex(row, center, space-between);
 		padding: 29px 34px;
 		@include font(1.8rem, calc(21 / 18));
+		grid-gap: 16px;
+		& span:last-child {
+			text-align: right;
+		}
+	}
+	&__result {
+		flex-shrink: 0;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.round-games {
+		&__link {
+			@include font(1.4rem, calc(16 / 14));
+			padding-left: 14px;
+			padding-right: 14px;
+			max-height: 80px;
+		}
 	}
 }

@@ -1,12 +1,20 @@
 .tabs-wrapper {
 	position: absolute;
-	@include font(row, stretch);
+	@include flex(row, stretch);
 	top: 0;
 	left: -1px;
 	transform: translateY(-100%);
 }
 
 .tab {
+	text-overflow: ellipsis;
+	line-clamp: 1;
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
 	@include font(2rem, calc(23 / 20));
 	font-weight: 700;
 	padding: 29px 34px 26px;
@@ -64,6 +72,17 @@
 @media screen and (max-width: 991px) {
 	.tab {
 		@include font(1.8rem, calc(21 / 18));
-		padding: 29px 15px;
+		padding: 29px 15px 26px;
+		&_active {
+			padding-right: 47px;
+			& .close {
+				right: 17px;
+			}
+		}
+		&_primary {
+			&.tab_active {
+				padding: 29px 15px 26px;
+			}
+		}
 	}
 }

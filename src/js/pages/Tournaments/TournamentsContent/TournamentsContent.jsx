@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Standings from './Standings/Standings';
 import Rounds from './Rounds/Rounds';
 
-const TournamentsContent = ({ tournaments, activeTab, setTabs, tabs }) => {
+const TournamentsContent = ({ tournaments, activeTab, setActiveTab, setTabs, tabs }) => {
 	const openEvent = (event) => {
 		if (!tabs.includes(event)) {
 			setTabs((tabs) => [...tabs, event]);
+
+			setActiveTab(event.event);
 		}
 	};
 

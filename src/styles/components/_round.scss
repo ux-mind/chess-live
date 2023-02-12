@@ -46,3 +46,16 @@
 		}
 	}
 }
+
+@media screen and (max-width: 767px) {
+	.round {
+		&-btn {
+			padding: 29px 14px 29px 49px;
+			@include flex(row, center, space-between);
+			@include font(1.8rem, calc(21 / 18));
+			&::before {
+				left: 14px;
+			}
+		}
+	}
+}

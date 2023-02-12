@@ -6,3 +6,10 @@
 	grid-row-gap: 160px;
 	grid-column-gap: 30px;
 }
+
+@media screen and (max-width: 991px) {
+	.tournament-info {
+		grid-template-columns: 100%;
+		grid-gap: 40px;
+	}
+}

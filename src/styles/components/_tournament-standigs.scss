@@ -9,6 +9,7 @@
 		-webkit-border-radius: 10px;
 		-moz-border-radius: 10px;
 		border-spacing: 0;
+		background: $dark-600;
 		& th:first-child {
 			border-top-left-radius: 9px;
 		}
@@ -33,6 +34,23 @@
 				text-align: left;
 				padding-left: 24px;
 				padding-right: 24px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.tournament-standings {
+		&__table {
+			& td,
+			th {
+				@include font(1.4rem, calc(16 / 14));
+			}
+			& th {
+				@include font(1.8rem, calc(21 / 18));
+			}
+			& tr td:first-child {
+				@include font(1.8rem, calc(21 / 18));
 			}
 		}
 	}
