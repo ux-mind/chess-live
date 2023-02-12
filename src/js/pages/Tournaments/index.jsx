@@ -1,47 +1,80 @@
 import React, { useState, useEffect } from 'react';
 import tournaments from '../../data/tournaments';
 import TournamentsContent from './TournamentsContent/TournamentsContent';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import PUBLIC_ROUTES from '../../data/publicRoutes';
 
 const Tournaments = () => {
 	// Tournament link does not refer to other route
 	// Open a new tab instead
 	// !NEED TO STORE TOURNAMENTS TABS
+	const { event, game } = useParams();
+	const navigate = useNavigate();
 
 	const [activeTab, setActiveTab] = useState('tournaments');
 	const [tabs, setTabs] = useState([]);
 
 	const closeEvent = (evt, tabEvent) => {
 		evt.stopPropagation();
+		evt.preventDefault();
 
 		if (tabs.includes(tabEvent)) {
 			const filteredTabs = tabs.filter((tab) => tab.event !== tabEvent.event);
 
 			setTabs(filteredTabs);
-			setActiveTab('tournaments');
+			navigate(`${PUBLIC_ROUTES.tournaments}`);
 		}
 	};
 
 	useEffect(() => {
-		console.log(activeTab);
-	}, [activeTab]);
+		for (let type of tournaments) {
+			const currentEvent = type.events.find((evt) => evt.path === event);
+
+			if (currentEvent) {
+				setTabs((tabs) => [...tabs, currentEvent]);
+
+				return;
+			}
+		}
+	}, []);
+
+	useEffect(() => {
+		if (event === undefined) {
+			setActiveTab('tournaments');
+
+			return;
+		}
+
+		for (let type of tournaments) {
+			const currentEvent = type.events.find((evt) => evt.path === event);
+
+			if (currentEvent) {
+				setActiveTab(currentEvent.event);
+
+				return;
+			}
+		}
+	}, [event]);
 
 	return (
 		<main className="main tournaments">
 			<div className="container">
 				<div className="tournaments-wrapper">
 					<div className="tournaments-tabs">
-						<button
+						<Link
+							to={`${PUBLIC_ROUTES.tournaments}`}
 							className={`tab tab_primary ${
 								activeTab === 'tournaments' ? 'tab_active' : ''
 							}`}
 							onClick={() => setActiveTab('tournaments')}
 						>
 							Tournaments
-						</button>
+						</Link>
 						{tabs
 							? tabs.map((tab, idx) => {
 									return (
-										<button
+										<Link
+											to={`${PUBLIC_ROUTES.tournaments}/${tab.path}`}
 											className={`tab ${
 												activeTab === tab.event ? 'tab_active' : ''
 											}`}
@@ -66,7 +99,7 @@ const Tournaments = () => {
 													/>
 												</svg>
 											</div>
-										</button>
+										</Link>
 									);
 							  })
 							: null}

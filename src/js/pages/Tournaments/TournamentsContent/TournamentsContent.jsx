@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Standings from './Standings/Standings';
 import Rounds from './Rounds/Rounds';
+import { Link } from 'react-router-dom';
+import PUBLIC_ROUTES from '../../../data/publicRoutes';
 
 const TournamentsContent = ({ tournaments, activeTab, setActiveTab, setTabs, tabs }) => {
 	const openEvent = (event) => {
@@ -26,9 +28,12 @@ const TournamentsContent = ({ tournaments, activeTab, setActiveTab, setTabs, tab
 													key={event.event}
 													onClick={() => openEvent(event)}
 												>
-													<button className="tournaments-list__btn">
+													<Link
+														to={`${PUBLIC_ROUTES.tournaments}/${event.path}`}
+														className="tournaments-list__btn"
+													>
 														{event.event}
-													</button>
+													</Link>
 												</li>
 										  ))
 										: null}

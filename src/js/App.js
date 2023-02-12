@@ -12,7 +12,10 @@ const App = () => {
 				<Header />
 				<Routes>
 					<Route path={PUBLIC_ROUTES.home} element={<Home />} />
-					<Route path={PUBLIC_ROUTES.tournaments} element={<Tournaments />} />
+					<Route
+						path={`${PUBLIC_ROUTES.tournaments}/:event?/game?`}
+						element={<Tournaments />}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
