@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import tournaments from '../../data/tournaments';
 import TournamentsContent from './TournamentsContent/TournamentsContent';
+import Game from './Game/Game';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import PUBLIC_ROUTES from '../../data/publicRoutes';
 
@@ -115,6 +116,8 @@ const Tournaments = () => {
 		}
 	}, [event]);
 
+	console.log(game);
+
 	return (
 		<main className="main tournaments">
 			<div className="container">
@@ -199,13 +202,17 @@ const Tournaments = () => {
 							</button>
 						</div>
 					</div>
-					<TournamentsContent
-						tournaments={tournaments}
-						activeTab={activeTab}
-						setActiveTab={setActiveTab}
-						setTabs={setTabs}
-						tabs={tabs}
-					/>
+					{game ? (
+						<Game game={game} />
+					) : (
+						<TournamentsContent
+							tournaments={tournaments}
+							activeTab={activeTab}
+							setActiveTab={setActiveTab}
+							setTabs={setTabs}
+							tabs={tabs}
+						/>
+					)}
 				</div>
 			</div>
 		</main>

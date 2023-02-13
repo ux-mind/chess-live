@@ -13,7 +13,7 @@ const App = () => {
 				<Routes>
 					<Route path={PUBLIC_ROUTES.home} element={<Home />} />
 					<Route
-						path={`${PUBLIC_ROUTES.tournaments}/:event?/game?`}
+						path={`${PUBLIC_ROUTES.tournaments}/:event?/:game?`}
 						element={<Tournaments />}
 					/>
 				</Routes>

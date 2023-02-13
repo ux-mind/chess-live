@@ -1,7 +1,7 @@
 import React from 'react';
 import Standings from './Standings/Standings';
 import Rounds from './Rounds/Rounds';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PUBLIC_ROUTES from '../../../data/publicRoutes';
 
 const TournamentsContent = ({ tournaments, activeTab, setActiveTab, setTabs, tabs }) => {

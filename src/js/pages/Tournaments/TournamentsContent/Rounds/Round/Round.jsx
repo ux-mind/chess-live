@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import PUBLIC_ROUTES from '../../../../../data/publicRoutes';
 
 const Round = ({ roundNumber }) => {
 	const [isOpened, setIsOpened] = useState(false);
+
+	const { event } = useParams();
 
 	return (
 		<div className="round">
@@ -16,14 +19,10 @@ const Round = ({ roundNumber }) => {
 			{isOpened ? (
 				<ul className="round-games">
 					<li className="round-games__game">
-						<Link className="round-games__link" to="/">
-							<span>Artemiev, Vladislav</span>
-							<div className="round-games__result">1-0</div>
-							<span>Grischuk, Alexander</span>
-						</Link>
-					</li>
-					<li className="round-games__game">
-						<Link className="round-games__link" to="/">
+						<Link
+							className="round-games__link"
+							to={`${PUBLIC_ROUTES.tournaments}/${event}/game1`}
+						>
 							<span>Artemiev, Vladislav</span>
 							<div className="round-games__result">1-0</div>
 							<span>Grischuk, Alexander</span>
