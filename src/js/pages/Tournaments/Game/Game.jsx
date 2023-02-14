@@ -22,18 +22,18 @@ const Game = () => {
 			if (board) {
 				calculateBoardHeight(board);
 			}
-
-			window.addEventListener('resize', () => calculateBoardHeight(board));
 		});
+
+		window.addEventListener('resize', () => calculateBoardHeight(board));
 
 		return () => {
 			window.removeEventListener('load', () => {
 				if (board) {
 					calculateBoardHeight(board);
 				}
-
-				window.addEventListener('resize', () => calculateBoardHeight(board));
 			});
+
+			window.removeEventListener('resize', () => calculateBoardHeight(board));
 		};
 	}, []);
 
@@ -54,7 +54,7 @@ const Game = () => {
 				</div>
 			</div>
 			<div className="pgn-wrapper">
-				<ct-pgn-viewer board-resizable="true" move-list-resizable="true" board-size="auto">
+				<ct-pgn-viewer move-list-resizable="true" board-size="auto">
 					{`[Event "WRBC 2022. Rapid Women"]
 				[Site "Almaty, Kazakhstan"]
 				[Date "????.??.??"]

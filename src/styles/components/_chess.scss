@@ -85,4 +85,15 @@ chess-board[data-id='viewerct-2'] {
 	.ct-pgn-viewer-move-list-and-controls {
 		width: 100%;
 	}
+
+	board-controls[data-id='viewerct-2'] {
+		order: -1;
+		margin-bottom: 40px;
+	}
+
+	.ct-pgn-viewer-multi-game-selector-panel,
+	.ct-pgn-viewer-board-and-move-list,
+	game-header[data-id='viewerct-2'] {
+		margin-bottom: 40px;
+	}
 }
