@@ -52,7 +52,7 @@ html {
 // 6. Components
 @import 'components/app', './components/cage', './components/tournament-info', './components/tournament-games',
 	'./components/tournament-rounds', './components/tournament-standigs', './components/round',
-	'./components/round-games', './components/pgn';
+	'./components/round-games', './components/pgn', './components/chess';
 
 // 7. Page-specific styles
 @import 'pages/home', './pages/tournaments';

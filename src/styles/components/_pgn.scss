@@ -12,11 +12,22 @@
 	}
 }
 
+@media screen and (max-width: 1320px) {
+	.pgn {
+		&-info {
+			grid-template-columns: auto 400px;
+		}
+	}
+}
+
 @media screen and (max-width: 991px) {
 	.pgn {
 		&-info {
 			grid-template-columns: 100%;
 			grid-gap: 40px;
+		}
+		&-wrapper {
+			margin-bottom: 80px;
 		}
 	}
 }

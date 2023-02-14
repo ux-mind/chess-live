@@ -22,7 +22,7 @@ const Game = () => {
 				</div>
 			</div>
 			<div className="pgn-wrapper">
-				<ct-pgn-viewer>
+				<ct-pgn-viewer board-resizable="true" move-list-resizable="true">
 					{`[Event "WRBC 2022. Rapid Women"]
 				[Site "Almaty, Kazakhstan"]
 				[Date "????.??.??"]
