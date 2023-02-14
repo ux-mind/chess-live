@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Standings from '../TournamentsContent/Standings/Standings';
 
+function calculateBoardHeight(board) {
+	const width = board.offsetWidth;
+
+	board.style.height = `${width}px`;
+}
+
 const Game = () => {
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		window.addEventListener('load', () => {
+			const board = document.querySelector('chess-board');
+
+			if (board) {
+				calculateBoardHeight(board);
+			}
+
+			window.addEventListener('resize', () => calculateBoardHeight(board));
+		});
+
+		return () => {
+			window.removeEventListener('load', () => {
+				const board = document.querySelector('chess-board');
+
+				if (board) {
+					calculateBoardHeight(board);
+				}
+
+				window.addEventListener('resize', () => calculateBoardHeight(board));
+			});
+		};
+	}, []);
 
 	return (
 		<div className="pgn-info">
@@ -22,7 +52,7 @@ const Game = () => {
 				</div>
 			</div>
 			<div className="pgn-wrapper">
-				<ct-pgn-viewer board-resizable="true" move-list-resizable="true">
+				<ct-pgn-viewer board-resizable="true" move-list-resizable="true" board-size="auto">
 					{`[Event "WRBC 2022. Rapid Women"]
 				[Site "Almaty, Kazakhstan"]
 				[Date "????.??.??"]

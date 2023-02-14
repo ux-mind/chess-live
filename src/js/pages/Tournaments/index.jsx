@@ -47,13 +47,9 @@ const Tournaments = () => {
 			}
 		}
 
-		console.log();
-
 		if (activeTabData && direction === 'next') {
 			const activeTabIndex = tabs.indexOf(activeTabData);
 			const newEventPath = tabs[activeTabIndex + 1].path;
-
-			console.log('a');
 
 			navigate(`${PUBLIC_ROUTES.tournaments}/${newEventPath}`);
 		}
@@ -115,8 +111,6 @@ const Tournaments = () => {
 			}
 		}
 	}, [event]);
-
-	console.log(game);
 
 	return (
 		<main className="main tournaments">
