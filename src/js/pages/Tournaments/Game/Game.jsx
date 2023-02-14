@@ -12,9 +12,13 @@ const Game = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		window.addEventListener('load', () => {
-			const board = document.querySelector('chess-board');
+		const board = document.querySelector('chess-board');
 
+		if (board) {
+			calculateBoardHeight(board);
+		}
+
+		window.addEventListener('load', () => {
 			if (board) {
 				calculateBoardHeight(board);
 			}
@@ -24,8 +28,6 @@ const Game = () => {
 
 		return () => {
 			window.removeEventListener('load', () => {
-				const board = document.querySelector('chess-board');
-
 				if (board) {
 					calculateBoardHeight(board);
 				}
