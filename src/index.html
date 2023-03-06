@@ -16,6 +16,22 @@
 	<div id="root"></div>
 	<script defer language="javascript" src="https://c1a.chesstempo.com/pgnviewer/v2.5/pgnviewerext.bundle.vers1.js"
 		crossorigin></script>
+	<script type="text/javascript" src="./js/utils/ltpgnviewer.js"></script>
+	<script type="text/javascript">
+		function pgn2fen() {
+			Init(window.document.forms[0].startfen.value);
+			SetPgnMoveText(window.document.forms[0].pgn.value);
+			var ff = "", ff_new = "", ff_old;
+			do {
+				ff_old = ff_new;
+				MoveForward(1);
+				ff_new = GetFEN();
+				if (ff_old != ff_new) ff += ff_new + "\n";
+			}
+			while (ff_old != ff_new);
+			window.document.forms[0].fen.value = ff;
+		}
+	</script>
 </body>
 
 </html>
