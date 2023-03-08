@@ -206,7 +206,7 @@ function OpenUrl(ss) {
 	}
 }
 
-function Init(rr) {
+export function Init(rr) {
 	var cc, ii, jj, kk, ll, nn, mm;
 	isInit = true;
 	if (isAutoPlay) SetAutoPlay(false);

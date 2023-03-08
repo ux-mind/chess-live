@@ -4,6 +4,10 @@ import Standings from '../TournamentsContent/Standings/Standings';
 import useAnalysis from '../../../hooks/useAnalysis';
 import { convertToFEN } from 'pgn-to-fen';
 
+import { Init } from '../../../utils/ltpgnviewer.js';
+
+console.log(Init);
+
 // test for pgn convert
 const fen =
 	convertToFEN(`1. d4 {[%clk 00:03:02]} {[%emt 00:00:02]} Nf6 {[%clk 00:03:03]} 2. Nf3 {[%clk
