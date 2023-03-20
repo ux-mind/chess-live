@@ -13,6 +13,31 @@ function calculateBoardHeight(board) {
 	board.style.height = `${width}px`;
 }
 
+function triggerMoves(setCurrentMove) {
+	const movesContainer = document.querySelector('.ct-move-list-container');
+
+	const backBtn = document.querySelector('button[data-nav-cmd="back"]');
+	const forwardBtn = document.querySelector('button[data-nav-cmd="forward"]');
+
+	if (movesContainer) {
+		movesContainer.addEventListener('click', (e) => {
+			const target = e.target;
+			const moveEl = target.closest('.ct-move');
+
+			if (moveEl) {
+				const moveNumber = moveEl.dataset.moveId - 2;
+
+				setCurrentMove(moveNumber);
+			}
+		});
+	}
+
+	if (backBtn && forwardBtn) {
+		backBtn.addEventListener('click', () => setCurrentMove((prev) => prev - 1));
+		forwardBtn.addEventListener('click', () => setCurrentMove((prev) => prev + 1));
+	}
+}
+
 const Game = () => {
 	const [currentMove, setCurrentMove] = useState(1);
 	const [fen, setFen] = useState([]);
@@ -91,61 +116,16 @@ const Game = () => {
 	useEffect(() => {
 		play();
 
-		window.addEventListener('load', () => {
-			const movesContainer = document.querySelector('.ct-move-list-container');
+		window.addEventListener('load', () => triggerMoves(setCurrentMove));
+		window.addEventListener('locationchange', () => triggerMoves(setCurrentMove));
 
-			const backBtn = document.querySelector('button[data-nav-cmd="back"]');
-			const forwardBtn = document.querySelector('button[data-nav-cmd="forward"]');
-
-			if (movesContainer) {
-				movesContainer.addEventListener('click', (e) => {
-					const target = e.target;
-					const moveEl = target.closest('.ct-move');
-
-					if (moveEl) {
-						const moveNumber = moveEl.dataset.moveId - 2;
-
-						setCurrentMove(moveNumber);
-					}
-				});
-			}
-
-			if (backBtn && forwardBtn) {
-				backBtn.addEventListener('click', () => setCurrentMove((prev) => prev - 1));
-				forwardBtn.addEventListener('click', () => setCurrentMove((prev) => prev + 1));
-			}
-		});
-
-		return () =>
-			window.removeEventListener('load', () => {
-				const movesContainer = document.querySelector('.ct-move-list-container');
-
-				const backBtn = document.querySelector('button[data-nav-cmd="back"]');
-				const forwardBtn = document.querySelector('button[data-nav-cmd="forward"]');
-
-				if (movesContainer) {
-					movesContainer.addEventListener('click', (e) => {
-						const target = e.target;
-						const moveEl = target.closest('.ct-move');
-
-						if (moveEl) {
-							const moveNumber = moveEl.dataset.moveId - 2;
-
-							setCurrentMove(moveNumber);
-						}
-					});
-				}
-
-				if (backBtn && forwardBtn) {
-					backBtn.addEventListener('click', () => setCurrentMove((prev) => prev - 1));
-					forwardBtn.addEventListener('click', () => setCurrentMove((prev) => prev + 1));
-				}
-			});
+		return () => {
+			window.removeEventListener('load', () => triggerMoves(setCurrentMove));
+			window.removeEventListener('locationchange', () => triggerMoves(setCurrentMove));
+		};
 	}, []);
 
-	const { data, error } = useAnalysis(fen[currentMove - 1], 5, 'standard', [fen, currentMove]);
-
-	console.log(fen[currentMove - 1]);
+	const { data, error } = useAnalysis(fen[currentMove - 1], 3, 'standard', [fen, currentMove]);
 
 	console.log(data);
 
@@ -244,6 +224,21 @@ const Game = () => {
 				{[%clk 00:00:08]} cxb3+ {[%clk 00:00:16]} {[%emt 00:00:01]} 40. Kxb3 {[%clk
 				00:00:10]} f5 {[%clk 00:00:14]} {[%emt 00:00:03]} 0-1)`}
 				</ct-pgn-viewer>
+				{data ? (
+					<div className="analysis">
+						<header className="analysis__header">Analysis</header>
+						<ul className="analysis-content">
+							{data.pvs.map((pvs) => {
+								return (
+									<li className="analysis-content__item" key={pvs.moves}>
+										<span>Moves: {pvs.moves}</span>
+										<span>CP: {pvs.cp}</span>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				) : null}
 			</div>
 			<Standings />
 		</div>
