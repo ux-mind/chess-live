@@ -115,6 +115,7 @@ const Game = () => {
 	// For move change
 	useEffect(() => {
 		play();
+		triggerMoves(setCurrentMove);
 
 		window.addEventListener('load', () => triggerMoves(setCurrentMove));
 		window.addEventListener('locationchange', () => triggerMoves(setCurrentMove));
@@ -127,7 +128,7 @@ const Game = () => {
 
 	const { data, error } = useAnalysis(fen[currentMove - 1], 3, 'standard', [fen, currentMove]);
 
-	console.log(data);
+	console.log(currentMove);
 
 	useEffect(() => {
 		const board = document.querySelector('chess-board');
